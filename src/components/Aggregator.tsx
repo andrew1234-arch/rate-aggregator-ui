@@ -26,14 +26,19 @@ export default function Aggregator() {
             <h2 className="text-2xl font-bold text-gray-900">Rate Aggregator</h2>
 
             <div className="flex flex-col space-y-2">
-                <label className="text-sm font-medium text-gray-700">Amount In</label>
-                <input
-                    type="number"
-                    value={amountIn}
-                    onChange={(e) => setAmountIn(Number(e.target.value))}
-                    className="p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 text-gray-900"
-                    placeholder="Enter amount"
-                />
+                <label className="text-sm font-medium text-gray-700">Amount In (SUI)</label>
+                <div className="relative">
+                    <input
+                        type="number"
+                        value={amountIn}
+                        onChange={(e) => setAmountIn(Number(e.target.value))}
+                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 text-gray-900 pr-12"
+                        placeholder="Enter amount"
+                    />
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                        <span className="text-gray-500 text-sm">SUI</span>
+                    </div>
+                </div>
             </div>
 
             <button
@@ -46,7 +51,7 @@ export default function Aggregator() {
 
             {bestRate && (
                 <div className="mt-4 p-4 bg-green-50 rounded-md border border-green-200">
-                    <p className="text-green-800 font-semibold">Best Output: {bestRate.amountOut}</p>
+                    <p className="text-green-800 font-semibold">Best Output: {bestRate.amountOut} SUI</p>
                     <p className="text-sm text-green-600">via Pool ID: {bestRate.poolId}</p>
                 </div>
             )}
